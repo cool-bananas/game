@@ -9,11 +9,8 @@
 
 ### Grupo
 
-+ Carlos Marin
-+ Daniel Hotta
-+ Guilherme
-+ Marcus Vinicius Morgado
-+ Willian Akira Mizutani
++ [orenjiAkira](https://github.com/orenjiakira)
++ and others!
 
 ### Install
 
