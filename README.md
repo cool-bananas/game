@@ -9,11 +9,11 @@
 
 ### Grupo
 
-Carlos Marin
-Marcus Vinicius Morgado  
-Daniel Hotta  
-Guilherme  
-Willian Akira Mizutani  
++ Carlos Marin
++ Marcus Vinicius Morgado
++ Daniel Hotta
++ Guilherme
++ Willian Akira Mizutani
 
 ### Install
 
