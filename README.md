@@ -10,9 +10,9 @@
 ### Grupo
 
 + Carlos Marin
-+ Marcus Vinicius Morgado
 + Daniel Hotta
 + Guilherme
++ Marcus Vinicius Morgado
 + Willian Akira Mizutani
 
 ### Install
