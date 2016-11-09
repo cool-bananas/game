@@ -5,18 +5,21 @@
 
 ### Proposta
 
-...
+Jogo de luta e ritmo.
 
 ### Grupo
 
-+ [orenjiAkira](https://github.com/orenjiakira)
-+ and others!
++ [Carlos]
++ [Daniel]
++ [Guilherme]
++ [Marc]
++ [Willian Akira](https://github.com/orenjiakira)
 
 ### Install
 
 ...
 
-### How to play
+### Como jogar
 
 ...
 
