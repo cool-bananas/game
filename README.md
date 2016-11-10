@@ -9,11 +9,11 @@ Jogo de luta e ritmo.
 
 ### Grupo
 
-+ [Carlos]
++ [Carlos](https://girhub.com/cammarin)
 + [Daniel]
 + [Guilherme]
 + [Marc]
-+ [Willian Akira](https://github.com/orenjiakira)
++ [Akira](https://github.com/orenjiakira)
 
 ### Install
 
