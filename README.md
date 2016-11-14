@@ -11,7 +11,7 @@ Jogo de luta e ritmo.
 
 + [Carlos](https://girhub.com/cammarin)
 + [Daniel]
-+ [Guilherme]
++ [Guilherme](https://github.com/guiadissy)
 + [Marc]
 + [Akira](https://github.com/orenjiakira)
 
@@ -22,4 +22,3 @@ Jogo de luta e ritmo.
 ### Como jogar
 
 ...
-
