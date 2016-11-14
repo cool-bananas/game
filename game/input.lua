@@ -36,9 +36,11 @@ local handle = {
     Signal:emit(player .. '_hold', actions)
   end,
   press = function (player, action)
-    Signal:emit(player .. '_ṕress', action)
+    print(player .. '_press', action)
+    Signal:emit(player .. '_press', action)
   end,
   release = function (player, action)
+    print(player .. '_release', action)
     Signal:emit(player .. '_release', action)
   end,
 }
@@ -60,7 +62,7 @@ function input.keyheld (player)
   Then calls input handler at the end. ]]
 
   local keymap = input[player .. '_keymap']
-  local held_actions = held_actions
+  local held_actions = input[player .. '_held_actions']
   local idle = true
 
   for key, action in pairs(keymap) do
@@ -98,10 +100,10 @@ function input.keyreleased (key)
   and then calls the handler if it is. ]]
 
   if input.p1_keymap[key] then
-    handle.press('p1', input.p1_keymap[key])
+    handle.release('p1', input.p1_keymap[key])
   end
   if input.p2_keymap[key] then
-    handle.press('p2', input.p2_keymap[key])
+    handle.release('p2', input.p2_keymap[key])
   end
 end
 
