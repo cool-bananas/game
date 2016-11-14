@@ -4,20 +4,19 @@ require 'basic.tableutility'
 
 -- global modules
 Signal = require 'basic.signal' :new {}
+Input = require 'input'
 
 -- frame info
 local framerate = 60
 local frameunit = 1/framerate
 
 -- locals
+local gamestate = require 'gamestate'
 local framedelay = 0
 
--- local modules
-local input = require 'input'
-
 function love.load ()
-  -- body...
-  input.load()
+  -- load modules
+  Input.load()
 end
 
 function love.udpate (dt)
@@ -26,20 +25,26 @@ function love.udpate (dt)
   while framedelay >= frameunit do
     framedelay = framedelay - frameunit
     -- update code below
-    input.update()
 
+    -- update input module
+    Input.update()
+
+    -- update gamestate
+    gamestate.update()
 
   end
 end
 
 function love.draw ()
-  -- body...
+  gamestate.draw()
 end
 
 function love.keypressed (key)
-  input.keypressed(key)
+  -- check press input for action
+  Input.keypressed(key)
 end
 
 function love.keyreleased (key)
-  input.keyreleased(key)
+  -- check release input for action
+  Input.keyreleased(key)
 end
