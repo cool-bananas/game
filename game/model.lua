@@ -21,6 +21,7 @@ return function (constructor)
     object:set_id(id)
     object:init()
     pool.add(self.list, object)
+    return object
   end
 
   function self.destroy (id)
