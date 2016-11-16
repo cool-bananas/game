@@ -1,27 +1,23 @@
 
-local manager = require 'manager'
+local Manager = require 'manager'
+local Fight = {}
 
-
-local fight = {}
-
-function fight:init ()
-  manager:new_element('dummy')
+function Fight:init ()
+  -- initializer
+  self.elements_id = {}
 end
 
-function fight:load ()
-  -- body...
+function Fight:load ()
+  table.insert(self.elements_id, Manager:new_element('dummy'))
 end
 
-function fight:update ()
-  -- body...
+function Fight:update ()
 end
 
-function fight:draw ()
-  -- body...
+function Fight:draw ()
 end
 
-function fight:close ()
-  -- body...
+function Fight:close ()
 end
 
-return fight
+return Fight

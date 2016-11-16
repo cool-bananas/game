@@ -33,6 +33,7 @@ function manager:new_element (name)
       print(params)
     end
   end
+  return id
 end
 
 return manager:new {}

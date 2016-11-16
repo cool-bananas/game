@@ -22,16 +22,18 @@ function Body (params)
 
   function self:check_limits()
     local pos = self.physics:get_pos()
+    local speed = self.physics:get_speed()
     local size = self.physics:get_size()
+    local top, right, bottom, left = self.physics:get_edges()
 
-    if pos.y + size.y / 2 > Globals.height - 128 then
+    if bottom > Globals.height - 128 then
       self.physics:set_pos(pos.x, Globals.height - 128 - size.y / 2)
-      self.physics:set_speed()
+      self.physics:set_speed(speed.x, 0)
     end
-    if pos.x - size.x / 2 < 0 then
-      self.physics:set_pos(0 + size.x / 2, pos.y)
+    if left < 0 then
+      self.physics:set_pos(size.x / 2, pos.y)
     end
-    if pos.x + size.x / 2 > Globals.width then
+    if right > Globals.width then
       self.physics:set_pos(Globals.width - size.x / 2, pos.y)
     end
   end
@@ -41,7 +43,6 @@ function Body (params)
     local pos = self.physics:get_pos()
     local size = self.physics:get_size()
 
-    love.graphics.setColor(255,255,255)
     love.graphics.rectangle('fill', pos.x - size.x / 2, pos.y - size.y / 2, size.x, size.y)
   end
 
