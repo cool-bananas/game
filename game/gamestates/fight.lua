@@ -1,8 +1,11 @@
 
+local manager = require 'manager'
+
+
 local fight = {}
 
 function fight:init ()
-  -- body...
+  manager:new_element('dummy')
 end
 
 function fight:load ()
