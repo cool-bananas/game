@@ -97,4 +97,8 @@ function gamestates.close ()
   if current.leave then current:leave() end
 end
 
+function gamestates.current ()
+  return current
+end
+
 return gamestates

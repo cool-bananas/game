@@ -30,6 +30,9 @@ function Body (params)
       self.physics:set_pos(pos.x, Globals.height - 128 - size.y / 2)
       self.physics:set_speed(speed.x, 0)
     end
+
+    local pos = self.physics:get_pos()
+
     if left < 0 then
       self.physics:set_pos(size.x / 2, pos.y)
     end
@@ -50,6 +53,7 @@ function Body (params)
     -- what happens when you destroy
   end
 
+  print(self)
   return self
 end
 

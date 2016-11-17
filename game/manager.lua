@@ -23,6 +23,10 @@ function manager:draw ()
   end
 end
 
+function manager:get_component (id, cname)
+  return Components[cname].get(id)
+end
+
 function manager:new_element (name)
   local id = IDManager:generate()
   for _,cname in ipairs(component_list) do
