@@ -7,15 +7,22 @@ Signal = require 'basic.signal'
 Globals = require 'globals'
 Input = require 'input'
 
+-- global delta time
+DELTA = 0
+
 -- frame info
 local frameunit = Globals.frameunit
-DELTA = 0
 
 -- locals
 local gamestate = require 'gamestate'
+local manager = require 'manager'
 local framedelay = 0
 
 function love.load ()
+  -- guarantee randomness
+  love.math.setRandomSeed( os.time() )
+  math.random = love.math.random
+
   -- load input module
   Input.load()
 
@@ -32,6 +39,8 @@ function love.load ()
   end)
 
   print('everything loaded')
+
+  gamestate.load(require 'gamestates.fight')
 end
 
 function love.update (dt)
@@ -49,12 +58,13 @@ function love.update (dt)
 
     -- update gamestate
     gamestate.update()
-
+    manager:update()
   end
 end
 
 function love.draw ()
   gamestate.draw()
+  manager:draw()
 end
 
 function love.keypressed (key)

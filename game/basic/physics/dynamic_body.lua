@@ -66,4 +66,8 @@ function dynamic_body:get_speed ()
   return self.speed * 1
 end
 
+function dynamic_body:set_speed (x, y)
+  self.speed:set(x, y)
+end
+
 return dynamic_body

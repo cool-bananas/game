@@ -1,24 +1,42 @@
 
-local fight = {}
+local Manager = require 'manager'
+local Fight = {}
 
-function fight:init ()
-  -- body...
+function Fight:init ()
+  -- initializer
+  self.controller = require 'controller' :new {
+    list = { 'playable' }
+  }
+  self.elements_id = {}
+  self.p1 = false
+  self.p2 = false
 end
 
-function fight:load ()
-  -- body...
+function Fight:get_player1 ()
+  return self.p1
 end
 
-function fight:update ()
-  -- body...
+function Fight:get_player2 ()
+  return self.p2
 end
 
-function fight:draw ()
-  -- body...
+function Fight:load ()
+  self.p1 = Manager:new_element('dummy')
+  self.p2 = Manager:new_element('dummy2')
+  print(self.p1)
+  print(self.p2)
+  table.insert(self.elements_id, self.p1)
+  table.insert(self.elements_id, self.p2)
+  self.controller:activate()
 end
 
-function fight:close ()
-  -- body...
+function Fight:update ()
 end
 
-return fight
+function Fight:draw ()
+end
+
+function Fight:close ()
+end
+
+return Fight
