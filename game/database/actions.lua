@@ -1,5 +1,6 @@
 return {
   fight = {
-    'playable'
+    'gravity',
+    'movement',
   }
 }

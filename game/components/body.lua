@@ -2,8 +2,6 @@
 local Model = require 'model'
 local Component = require 'component'
 
-local G = require 'basic.vector' :new { 0, 10 }
-
 function Body (params)
   local self = Component.inherit()
 
@@ -15,7 +13,7 @@ function Body (params)
 
   function self:update ()
     -- logic update
-    self.physics:move(G)
+    Signal:emit("update_physics", self:get_id())
     self.physics:update()
     self:check_limits()
   end

@@ -33,8 +33,10 @@ function manager:new_element (name)
     local success, params = pcall(require, 'database.' .. cname .. '.' .. name)
     if success then
       Components[cname].create(id, params)
+    --[[
     else
       print(params)
+      ]]
     end
   end
   return id
