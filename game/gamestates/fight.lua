@@ -4,9 +4,7 @@ local Fight = {}
 
 function Fight:init ()
   -- initializer
-  self.controller = require 'controller' :new {
-    list = { 'playable' }
-  }
+  self.controller = require 'controller' :new { 'fight' }
   self.elements_id = {}
   self.p1 = false
   self.p2 = false
@@ -23,8 +21,6 @@ end
 function Fight:load ()
   self.p1 = Manager:new_element('dummy')
   self.p2 = Manager:new_element('dummy2')
-  print(self.p1)
-  print(self.p2)
   table.insert(self.elements_id, self.p1)
   table.insert(self.elements_id, self.p2)
   self.controller:activate()

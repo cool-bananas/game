@@ -1,0 +1,5 @@
+return {
+  fight = {
+    'playable'
+  }
+}

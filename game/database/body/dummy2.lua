@@ -1,4 +1,4 @@
 return {
-  600, 100,
+  Globals.width - 100, 100,
   50, 50,
 }

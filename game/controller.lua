@@ -1,12 +1,12 @@
 
 local controller = require 'basic.prototype' :new {
-  list = {},
+  {},
   __type = 'controller',
 }
 
 function controller:__init ()
-  local list = self.list
-  self.list = nil
+  local listname = self[1]
+  local list = require 'database.actions' [listname]
 
   self.registered = {}
   for k, ctrl_name in pairs(list) do
