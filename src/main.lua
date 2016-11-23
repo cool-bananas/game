@@ -4,6 +4,7 @@ require 'basic.tableutility'
 
 -- global modules
 Signal = require 'basic.signal'
+Timer = require 'basic.timer'
 Globals = require 'globals'
 Input = require 'input'
 

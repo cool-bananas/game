@@ -16,6 +16,7 @@ function Body (params)
     Signal:emit("update_physics", self:get_id())
     self.physics:update()
     self:check_limits()
+    Signal:emit("physics_done", self:get_id())
   end
 
   function self:check_limits()
@@ -43,15 +44,13 @@ function Body (params)
     -- render update
     local pos = self.physics:get_pos()
     local size = self.physics:get_size()
-
-    love.graphics.rectangle('fill', pos.x - size.x / 2, pos.y - size.y / 2, size.x, size.y)
+    --love.graphics.rectangle('fill', pos.x - size.x / 2, pos.y - size.y / 2, size.x, size.y)
   end
 
   function self:destroy ()
     -- what happens when you destroy
   end
 
-  print(self)
   return self
 end
 
