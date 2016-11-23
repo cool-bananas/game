@@ -3,10 +3,15 @@ local Manager = require 'manager'
 local GameState = require 'gamestate'.current()
 local Action = require 'action'
 
+local Vector = require 'basic.vector'
+
 local self = Action.inherit()
 
-local walking_speed = require 'basic.vector' :new { 1.5, 0 }
-local jumping_speed = require 'basic.vector' :new { 0, -60 }
+local walking_speed = Vector:new { 1.5, 0 }
+local jumping_speed = Vector:new { 0, -60 }
+
+local p1_grounded = true
+local p2_grounded = true
 
 self:add("p1_hold", function (actions)
   if not GameState.__initialized then return end
@@ -21,8 +26,35 @@ self:add("p1_hold", function (actions)
     print("right", player_body.physics)
     player_body.physics:move(walking_speed)
   end
-  if actions.up and player_body.physics:get_speed().y == 0 then
+end)
+
+self:add("p1_press", function (action)
+  local player_id = GameState:get_player1()
+  local player_body = Manager:get_component(player_id, 'body')
+  local size = player_body.physics:get_size()
+
+  if player_body.physics:get_pos().y >= Globals.height - 128 - size.y / 2 then
+    p1_grounded = true
+  end
+
+  if action == 'up' and p1_grounded then
     player_body.physics:move(jumping_speed)
+    p1_grounded = false
+  end
+end)
+
+self:add("p2_press", function (action)
+  local player_id = GameState:get_player2()
+  local player_body = Manager:get_component(player_id, 'body')
+  local size = player_body.physics:get_size()
+
+  if player_body.physics:get_pos().y >= Globals.height - 128 - size.y / 2 then
+    p2_grounded = true
+  end
+
+  if action == 'up' and p2_grounded then
+    player_body.physics:move(jumping_speed)
+    p2_grounded = false
   end
 end)
 
@@ -38,9 +70,6 @@ self:add("p2_hold", function (actions)
   elseif actions.right and not actions.left then
     print("right", player_body.physics)
     player_body.physics:move(walking_speed)
-  end
-  if actions.up and player_body.physics:get_speed().y == 0 then
-    player_body.physics:move(jumping_speed)
   end
 end)
 
