@@ -2,13 +2,15 @@
 local Model = require 'model'
 local Component = require 'component'
 
+local DynamicBody = require 'basic.physics.dynamic_body'
+
 function Body (params)
   local self = Component.inherit()
 
   function self:init ()
     -- initializer
     params.EPSILON = 1
-    self.physics = require 'basic.physics.dynamic_body' :new (params)
+    self.physics = DynamicBody:new (table.copy(params))
   end
 
   function self:update ()

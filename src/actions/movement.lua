@@ -15,8 +15,10 @@ self:add("p1_hold", function (actions)
   local player_body = Manager:get_component(player_id, 'body')
 
   if actions.left and not actions.right then
+    print("left", player_body.physics)
     player_body.physics:move(-walking_speed)
   elseif actions.right and not actions.left then
+    print("right", player_body.physics)
     player_body.physics:move(walking_speed)
   end
   if actions.up and player_body.physics:get_speed().y == 0 then
@@ -31,8 +33,10 @@ self:add("p2_hold", function (actions)
   local player_body = Manager:get_component(player_id, 'body')
 
   if actions.left and not actions.right then
+    print("left", player_body.physics)
     player_body.physics:move(-walking_speed)
   elseif actions.right and not actions.left then
+    print("right", player_body.physics)
     player_body.physics:move(walking_speed)
   end
   if actions.up and player_body.physics:get_speed().y == 0 then
