@@ -1,0 +1,5 @@
+return {
+  'body',
+  'actor',
+  'sprite',
+}
