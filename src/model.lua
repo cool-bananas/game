@@ -8,12 +8,15 @@ return function (constructor)
   self.list = {}
   self.construct = constructor
 
+  local bogus = constructor {}
+
   function self.get (id)
     for _,object in pairs(self.list) do
       if object:get_id() == id then
         return object
       end
     end
+    return bogus
   end
 
   function self.create (id, params)

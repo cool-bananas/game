@@ -9,6 +9,9 @@ local IDManager = require 'basic.unique'
 
 function manager:__init ()
   self.elements = {}
+  for i, cname in ipairs(component_list) do
+    print("loading...", cname, Components[cname])
+  end
 end
 
 function manager:update ()
@@ -30,13 +33,13 @@ end
 function manager:new_element (name)
   local id = IDManager:generate()
   for _,cname in ipairs(component_list) do
+    print("set component", cname)
     local success, params = pcall(require, 'database.' .. cname .. '.' .. name)
     if success then
       Components[cname].create(id, params)
-    --[[
     else
+      -- for debugging, this is very useful
       print(params)
-      ]]
     end
   end
   return id
