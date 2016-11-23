@@ -11,11 +11,15 @@ self:add("p1_hold", function (actions)
   local player_id = GameState:get_player1()
   local player_body = Manager:get_component(player_id, 'body')
   local walking_speed = require 'basic.vector' :new { 2, 0 }
+  local jumping_speed = require 'basic.vector' :new { 0, -100 }
 
   if actions.left and not actions.right then
     player_body.physics:move(-walking_speed)
   elseif actions.right and not actions.left then
     player_body.physics:move(walking_speed)
+  end
+  if actions.up and player_body.physics:get_speed().y == 0 then
+    player_body.physics:move(jumping_speed)
   end
 end)
 
@@ -25,11 +29,15 @@ self:add("p2_hold", function (actions)
   local player_id = GameState:get_player2()
   local player_body = Manager:get_component(player_id, 'body')
   local walking_speed = require 'basic.vector' :new { 2, 0 }
+  local jumping_speed = require 'basic.vector' :new { 0, -100 }
 
   if actions.left and not actions.right then
     player_body.physics:move(-walking_speed)
   elseif actions.right and not actions.left then
     player_body.physics:move(walking_speed)
+  end
+  if actions.up and player_body.physics:get_speed().y == 0 then
+    player_body.physics:move(jumping_speed)
   end
 end)
 
