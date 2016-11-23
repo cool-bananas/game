@@ -5,7 +5,7 @@ local Action = require 'action'
 
 local self = Action.inherit()
 
-local G = require 'basic.vector' :new { 0, 6 }
+local G = require 'basic.vector' :new { 0, 3 }
 
 self:add("update_physics", function (id)
   if not GameState.__initialized then return end
