@@ -23,6 +23,10 @@ function Actor (params)
     end
   end
 
+  function self:draw ()
+    
+  end
+
   return self
 end
 

@@ -3,5 +3,6 @@ return {
     'gravity',
     'movement',
     'viewing',
+    'setup',
   }
 }
