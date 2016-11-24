@@ -30,13 +30,13 @@ function manager:get_component (id, cname)
   return Components[cname].get(id)
 end
 
-function manager:new_element (name)
+function manager:new_element (element_name)
   local id = IDManager:generate()
-  for _,cname in ipairs(component_list) do
-    print("set component", cname)
-    local success, params = pcall(require, 'database.' .. cname .. '.' .. name)
+  for i,component_name in ipairs(component_list) do
+    print("set component", component_name)
+    local success, params = pcall(require, 'database.' .. component_name .. '.' .. element_name)
     if success then
-      Components[cname].create(id, params)
+      Components[component_name].create(id, params)
     else
       -- for debugging, this is very useful
       print(params)

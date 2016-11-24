@@ -25,12 +25,18 @@ local function setup_lifebar (player, actor)
   pos = Vector:new {Globals.width / 2 + offset, 50}
 
   -- create new element that synchronizes with player's actor below
-  -- [code here]
+  local lifebar_id = Manager:new_element('lifebar')
+  local lifebar = Manager:get_component(lifebar_id, 'lifebar')
+  lifebar:set_pos(pos:unpack())
+  lifebar:set_actor(actor)
 end
 
 self:add ("setup_player", function (player, id)
   local body = Manager:get_component(id, 'body')
+  local actor = Manager:get_component(id, 'actor')
+
   setup_body(player, body)
+  setup_lifebar(player, actor)
 end)
 
 return self

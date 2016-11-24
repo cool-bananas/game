@@ -4,10 +4,10 @@
 
 local p1_keymap = {
   -- p1
-  up     = 'up',
-  down   = 'down',
-  left   = 'left',
-  right  = 'right',
+  w      = 'up',
+  s      = 'down',
+  a      = 'left',
+  d      = 'right',
   z      = 'A',
   x      = 'B',
   c      = 'C',
@@ -17,10 +17,10 @@ local p1_keymap = {
 
 local p2_keymap = {
   -- p2
-  w      = 'up',
-  s      = 'down',
-  a      = 'left',
-  d      = 'right',
+  up     = 'up',
+  down   = 'down',
+  left   = 'left',
+  right  = 'right',
   b      = 'A',
   n      = 'B',
   m      = 'C',
