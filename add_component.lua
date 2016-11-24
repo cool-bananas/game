@@ -20,6 +20,7 @@ if not args[1] then
 end
 
 local name = args[1]
+
 local capitalized = name:gsub("(%l)(%w*)", function(a,b) return string.upper(a)..b end)
 local file
 local filestring
