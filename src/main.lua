@@ -8,6 +8,14 @@ Timer = require 'basic.timer'
 Globals = require 'globals'
 Input = require 'input'
 
+
+-- global user data
+BattleSetup = {
+  p1 = 'dummy',
+  p2 = 'dummy',
+  arena = 'white',
+}
+
 -- global delta time
 DELTA = 0
 
@@ -42,8 +50,6 @@ function love.load ()
   print('everything loaded')
 
   gamestate.load(require 'gamestates.fight')
-
-  love.graphics.setBackgroundColor(255,255,255)
 end
 
 function love.update (dt)

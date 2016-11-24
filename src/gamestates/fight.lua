@@ -19,11 +19,16 @@ function Fight:get_player2 ()
 end
 
 function Fight:load ()
-  self.p1 = Manager:new_element('dummy')
-  self.p2 = Manager:new_element('dummy')
+  if BattleSetup.arena == 'white' then
+    love.graphics.setBackgroundColor(255,255,255)
+  end
+
+  self.p1 = Manager:new_element(BattleSetup.p1)
+  self.p2 = Manager:new_element(BattleSetup.p2)
 
   table.insert(self.elements_id, self.p1)
   table.insert(self.elements_id, self.p2)
+  
   self.controller:activate()
 
   Signal:emit("setup_player", 1, self.p1)
