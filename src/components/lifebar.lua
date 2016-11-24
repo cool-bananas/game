@@ -2,7 +2,7 @@
 local Model = require 'model'
 local Component = require 'component'
 
-local barsize = 200
+local barsize = 255
 
 function Lifebar (params)
   local self = Component.inherit()
@@ -27,8 +27,10 @@ function Lifebar (params)
   end
 
   function self:draw ()
+    love.graphics.setColor(30,30,30)
+    love.graphics.rectangle("fill", pos.x - barsize / 2 - 1, pos.y - 1, barsize + 2, 12)
     love.graphics.setColor(0,200,0)
-    love.graphics.rectangle("fill", pos.x - barsize / 2, pos.y, barsize, 10)
+    love.graphics.rectangle("fill", pos.x - barsize / 2, pos.y, barsize * current / maxhp, 10)
   end
 
   return self

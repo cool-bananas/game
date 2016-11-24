@@ -16,11 +16,11 @@ local function setup_body(player, body)
 end
 
 local function setup_lifebar (player, actor)
-  local offset, pos
+  local offset = 200
+  local pos
+
   if player == 1 then
-    offset = -150
-  elseif player == 2 then
-    offset = 150
+    offset = -1 * offset
   end
   pos = Vector:new {Globals.width / 2 + offset, 50}
 
