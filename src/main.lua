@@ -42,6 +42,8 @@ function love.load ()
   print('everything loaded')
 
   gamestate.load(require 'gamestates.fight')
+
+  love.graphics.setBackgroundColor(255,255,255)
 end
 
 function love.update (dt)

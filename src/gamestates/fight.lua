@@ -20,10 +20,14 @@ end
 
 function Fight:load ()
   self.p1 = Manager:new_element('dummy')
-  self.p2 = Manager:new_element('dummy2')
+  self.p2 = Manager:new_element('dummy')
+
   table.insert(self.elements_id, self.p1)
   table.insert(self.elements_id, self.p2)
   self.controller:activate()
+
+  Signal:emit("setup_player", 1, self.p1)
+  Signal:emit("setup_player", 2, self.p2)
 end
 
 function Fight:update ()

@@ -7,8 +7,8 @@ dummy.width = dummy.image:getWidth()
 dummy.height = dummy.image:getHeight()
 
 dummy.scale = {
-  x = 1,
-  y = 1,
+  x = 2,
+  y = 2,
 }
 
 dummy.animations = {

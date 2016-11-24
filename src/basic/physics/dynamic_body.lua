@@ -3,7 +3,7 @@ local vector = require 'basic.vector'
 
 local dynamic_body = require 'basic.physics.collision_area' :new {
   centred = true,
-  SPEEDLIMIT = 0.8,
+  SPEEDLIMIT = 0.9,
   EPSILON = 1e-3,
   __type = 'dynamic_body'
 }

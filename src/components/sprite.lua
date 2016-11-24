@@ -105,6 +105,14 @@ function Sprite (params)
     timer:clear()
   end
 
+  function self:set_flip_h (flipped)
+    if flipped then
+      drawable[6] = -params.scale.x
+    else
+      drawable[6] = params.scale.x
+    end
+  end
+
   function self:update ()
     timer:update()
     drawable[2] = self:get_current_frame()
