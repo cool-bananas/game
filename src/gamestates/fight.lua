@@ -28,7 +28,7 @@ function Fight:load ()
 
   table.insert(self.elements_id, self.p1)
   table.insert(self.elements_id, self.p2)
-  
+
   self.controller:activate()
 
   Signal:emit("setup_player", 1, self.p1)
@@ -42,6 +42,7 @@ function Fight:draw ()
 end
 
 function Fight:close ()
+  self.controller:deactivate()
 end
 
 return Fight
