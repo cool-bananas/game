@@ -4,5 +4,5 @@ return {
     'movement',
     'viewing',
     'setup',
-  }
+  },
 }
