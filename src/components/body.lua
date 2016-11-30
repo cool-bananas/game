@@ -56,4 +56,4 @@ function Body (params)
   return self
 end
 
-return Model(Body)
+return Model(Body, 'body')

@@ -15,7 +15,7 @@ local args = { ... }
 
 if not args[1] or not args[2] then
   print("No arguments given. Usage:")
-  print(">> lua add_action.lua [action name]")
+  print(">> lua add_action.lua [action name] [gamestate name]")
   return
 end
 

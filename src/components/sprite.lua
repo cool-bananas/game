@@ -128,4 +128,4 @@ function Sprite (params)
   return self
 end
 
-return Model(Sprite)
+return Model(Sprite, 'sprite')

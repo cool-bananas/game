@@ -3,4 +3,5 @@ return {
   'actor',
   'sprite',
   'lifebar',
+  'hitbox',
 }

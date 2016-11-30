@@ -36,4 +36,4 @@ function Lifebar (params)
   return self
 end
 
-return Model(Lifebar)
+return Model(Lifebar, 'lifebar')

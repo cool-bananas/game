@@ -2,11 +2,12 @@
 -- dependency
 local pool = require 'basic.pool'
 
-return function (constructor)
+return function (constructor, name)
   local self = {}
 
   self.list = {}
   self.construct = constructor
+  self.name = name or 'model'
 
   local bogus = constructor {}
 
@@ -37,9 +38,11 @@ return function (constructor)
   end
 
   function self.update ()
+    Signal:emit('model_update', self.name)
     for _, object in pairs(self.list) do
       object:update()
     end
+    Signal:emit('model_update_done', self.name)
   end
 
   function self.draw ()

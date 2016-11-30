@@ -38,4 +38,4 @@ function Actor (params)
   return self
 end
 
-return Model(Actor)
+return Model(Actor, 'actor')

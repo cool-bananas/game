@@ -77,7 +77,7 @@ function ]] .. capitalized .. [[ (params)
   return self
 end
 
-return Model(]] .. capitalized .. [[)
+return Model(]] .. capitalized .. [[, ']] .. name .. [[')
 ]]
 
 file = io.open( "src/components/" .. name .. ".lua", "w+" )
