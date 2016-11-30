@@ -1,7 +1,7 @@
 return {
   'body',
-  'actor',
-  'sprite',
-  'lifebar',
   'hitbox',
+  'actor',
+  'lifebar',
+  'sprite',
 }

@@ -18,8 +18,15 @@ self:add("model_update_done", function (model)
   Physics.collide()
 end)
 
+self:add("update_physics", function (id)
+  local body = Manager:get_component(id, 'body')
+  local hitbox = Manager:get_component(id, 'hitbox')
+  if not body or not hitbox then return end
+  hitbox:set_position(body.physics:get_pos():unpack())
+end)
+
 self:add("collide", function (id)
-  
+
 end)
 
 return self

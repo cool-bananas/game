@@ -21,6 +21,7 @@ function Hitbox (params)
 
   function self:set_position (x, y)
     local position = Vector:new { x, y } + offset
+    x, y = position:unpack()
     collision_area:set_pos(x, y)
   end
 
@@ -38,7 +39,7 @@ function Hitbox (params)
 
   function self:draw()
     local t, r, b, l = collision_area:get_edges()
-    love.graphics.setColor(255,0,0)
+    love.graphics.setColor(255, 0, 0, 120)
     love.graphics.rectangle( 'fill', l, t, r - l, b - t)
     love.graphics.setColor(255,255,255)
   end
