@@ -3,6 +3,10 @@ local Manager = require 'manager'
 local GameState = require 'gamestate'.current()
 local Action = require 'action'
 
+local self = Action.inherit()
+
+print("\nATTACK CONTROLLER ACTIVATED\n")
+
 local function weak_attack (player, player_id)
   print("WEAK ATTACK!", player)
   --
