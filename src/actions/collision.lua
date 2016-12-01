@@ -33,7 +33,6 @@ self:add("physics_done", function (id)
   local frame = Manager:get_component(id, 'frame')
   if not body or not frame then return end
   frame:set_position(body.physics:get_pos():unpack())
-  print("updating hitbox position!")
 end)
 
 self:add("collide", function (receiver, giver)
