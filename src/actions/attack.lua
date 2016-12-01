@@ -9,7 +9,7 @@ print("\nATTACK CONTROLLER ACTIVATED\n")
 
 local function weak_attack (player, player_id)
   print("WEAK ATTACK!", player)
-  --
+
 end
 
 local function strong_attack (player, player_id)
@@ -42,6 +42,10 @@ self:add("p2_press", function (action)
   elseif action == 'C' then
     bullet_attack(2, player_id)
   end
+end)
+
+self:add("cancel_attack", function (atk)
+  --
 end)
 
 return self
