@@ -12,6 +12,14 @@ function Attack (params)
   function self:init()
     value = params.value or 1
     priority = params.priority or 1
+    Timer:after(
+      params.length,
+      function ()
+        print("ATTACK IS DONE!")
+        local Manager = require 'manager'
+        Manager:delete_element(self:get_id())
+      end
+    )
   end
 
   function self:get_value ()
@@ -23,7 +31,7 @@ function Attack (params)
   end
 
   function self:update()
-    -- update
+    print("ATTACKING!")
   end
 
   function self:draw()

@@ -66,6 +66,7 @@ function love.update (dt)
     Input.update()
 
     -- update gamestate
+    Timer:update()
     gamestate.update()
     manager:update()
   end

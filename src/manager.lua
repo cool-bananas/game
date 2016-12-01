@@ -32,9 +32,7 @@ end
 
 function manager:delete_element (id)
   for i, component_name in ipairs(component_list) do
-    if success then
-      Components[component_name].destroy(id)
-    end
+    Components[component_name].destroy(id)
   end
 end
 

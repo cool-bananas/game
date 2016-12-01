@@ -11,7 +11,7 @@ function hitbox.new (width, height, ox, oy)
   self.offset = Vector:new { ox, oy }
 
   function self:set_pos (x, y)
-    local position = Vector:new { x, y } - self.offset
+    local position = Vector:new { x, y } + self.offset
     self.pos:set(position:unpack())
   end
 

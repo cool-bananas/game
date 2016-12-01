@@ -49,10 +49,6 @@ function Body (params)
     --love.graphics.rectangle('fill', pos.x - size.x / 2, pos.y - size.y / 2, size.x, size.y)
   end
 
-  function self:destroy ()
-    -- what happens when you destroy
-  end
-
   return self
 end
 

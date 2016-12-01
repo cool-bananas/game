@@ -9,7 +9,11 @@ print("\nATTACK CONTROLLER ACTIVATED\n")
 
 local function weak_attack (player, player_id)
   print("WEAK ATTACK!", player)
-
+  local position = Manager:get_component(player_id, "body").physics:get_pos()
+  local name = Manager:get_component(player_id, "actor"):get_name()
+  local attack = Manager:new_element(name .. '_weak')
+  Manager:get_component(attack, "frame"):set_position(position:unpack())
+  Manager:get_component(attack, "frame"):set_layer(player * 3)
 end
 
 local function strong_attack (player, player_id)

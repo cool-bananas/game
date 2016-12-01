@@ -43,6 +43,7 @@ self:add("collide", function (receiver, giver)
   if not attacker or not (attack and actor) then return end
 
   if actor then
+    print("TAKE DAMAGE!\n")
     attacked_actor:take_damage(attacker:get_value())
   elseif attack then
     local receiver_priority = attack:get_priority()

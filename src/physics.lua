@@ -8,12 +8,12 @@ local function verify_collision(f1, f2)
     for _,that_hitbox in ipairs(f2:get_current_frame()) do
       local this, that = physics.layer_collision(this_hitbox, that_hitbox)
       if this then
-        if physics.rectangle_collision(this_frame, that_frame) then
+        if physics.rectangle_collision(this_hitbox, that_hitbox) then
           Signal:emit("collide", f1:get_id(), f2:get_id())
         end
       end
       if that then
-        if physics.rectangle_collision(this_frame, that_frame) then
+        if physics.rectangle_collision(this_hitbox, that_hitbox) then
           Signal:emit("collide", f1:get_id(), f2:get_id())
         end
       end
