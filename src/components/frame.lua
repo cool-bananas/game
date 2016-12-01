@@ -24,7 +24,7 @@ function Frame (params)
         end
       end
     end
-    self:set_animation(current)
+    self:play(current)
   end
 
   function self:get_animation_frames ()
@@ -57,6 +57,7 @@ function Frame (params)
   end
 
   function self:set_animation (anim)
+    if anim == current then return end
     if animations[anim] then
       self:play(anim)
     end
