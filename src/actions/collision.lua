@@ -25,8 +25,15 @@ self:add("update_physics", function (id)
   hitbox:set_position(body.physics:get_pos():unpack())
 end)
 
-self:add("collide", function (id)
+self:add("collide", function (id1, id2)
+  print("COLLISION")
+  local attack = Manager:get_component(id2, 'attack')
+  local actor = Manager:get_component(id1, 'actor')
+  print("attack", attack)
+  print("actor", actor)
+  if not attack or not actor then return end
 
+  actor:take_dmg(attack:get_value())
 end)
 
 return self

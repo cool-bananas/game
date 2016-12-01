@@ -1,4 +1,4 @@
 return {
-  maxhp = 10,
+  maxhp = 100,
   attack = 1,
 }

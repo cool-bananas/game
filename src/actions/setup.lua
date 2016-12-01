@@ -31,10 +31,41 @@ local function setup_lifebar (player, actor)
   lifebar:set_actor(actor)
 end
 
+local function setup_hitbox(player, hitbox)
+  --[[
+
+  HITBOX LAYERS
+  1: player one
+  2: player two
+  3: hits from one weak
+  4: hits from one strong
+  5: hits from one bullet
+  6: hits from two weak
+  7: hits from two strong
+  8: hits from two bullet
+
+  ]]
+  if player == 1 then
+    hitbox:get_collision_area():set_layer(1)
+    hitbox:get_collision_area():set_mask(2)
+    hitbox:get_collision_area():set_mask(6)
+    hitbox:get_collision_area():set_mask(7)
+    hitbox:get_collision_area():set_mask(8)
+  elseif player == 2 then
+    hitbox:get_collision_area():set_layer(2)
+    --hitbox:get_collision_area():set_mask(1)
+    hitbox:get_collision_area():set_mask(3)
+    hitbox:get_collision_area():set_mask(4)
+    hitbox:get_collision_area():set_mask(5)
+  end
+end
+
 self:add ("setup_player", function (player, id)
   local body = Manager:get_component(id, 'body')
   local actor = Manager:get_component(id, 'actor')
+  local hitbox = Manager:get_component(id, 'hitbox')
 
+  setup_hitbox(player, hitbox)
   setup_body(player, body)
   setup_lifebar(player, actor)
 end)

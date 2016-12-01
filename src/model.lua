@@ -17,7 +17,7 @@ return function (constructor, name)
         return object
       end
     end
-    return bogus
+    --return bogus
   end
 
   function self.create (id, params)

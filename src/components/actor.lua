@@ -9,8 +9,14 @@ function Actor (params)
   local damage
 
   function self:init ()
-    maxhp, attack = params.maxhp, params.attack
+    maxhp = params.maxhp
+    attack = params.attack
     damage = 0
+  end
+
+  function self:take_dmg(dmg)
+    print(damage, dmg)
+    damage = math.min(damage + dmg, maxhp)
   end
 
   function self:is_dead ()
