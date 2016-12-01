@@ -7,10 +7,8 @@ local Physics = require 'physics'
 
 local self = Action.inherit()
 
-self:add("update_hitbox", function (id)
-  local hitbox = Manager:get_component(id, 'hitbox')
-  print(hitbox)
-  Physics.enqueue(hitbox)
+self:add("queue_hitboxes", function (frame)
+  Physics.enqueue(frame)
 end)
 
 self:add("model_update_done", function (model)
@@ -18,22 +16,15 @@ self:add("model_update_done", function (model)
   Physics.collide()
 end)
 
-self:add("update_physics", function (id)
+self:add("physics_done", function (id)
   local body = Manager:get_component(id, 'body')
-  local hitbox = Manager:get_component(id, 'hitbox')
-  if not body or not hitbox then return end
-  hitbox:set_position(body.physics:get_pos():unpack())
+  local frame = Manager:get_component(id, 'frame')
+  if not body or not frame then return end
+  frame:set_position(body.physics:get_pos():unpack())
 end)
 
-self:add("collide", function (id1, id2)
-  print("COLLISION")
-  local attack = Manager:get_component(id2, 'attack')
-  local actor = Manager:get_component(id1, 'actor')
-  print("attack", attack)
-  print("actor", actor)
-  if not attack or not actor then return end
-
-  actor:take_dmg(attack:get_value())
+self:add("collide", function (receiver, giver)
+  print("COLLISION", receiver, giver)
 end)
 
 return self

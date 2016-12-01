@@ -1,4 +1,4 @@
 return {
   value = 5,
-  priority = 2,
+  priority = 3,
 }

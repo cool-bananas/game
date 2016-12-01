@@ -1,6 +1,6 @@
 return {
   'body',
-  'hitbox',
+  'frame',
   'actor',
   'lifebar',
   'sprite',

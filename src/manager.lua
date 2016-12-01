@@ -9,30 +9,38 @@ local IDManager = require 'basic.unique'
 
 function manager:__init ()
   self.elements = {}
-  for i, cname in ipairs(component_list) do
-    print("loading...", cname, Components[cname])
+  for i, component_name in ipairs(component_list) do
+    print("loading...", component_name, Components[component_name])
   end
 end
 
 function manager:update ()
-  for i, cname in ipairs(component_list) do
-    Components[cname]:update()
+  for i, component_name in ipairs(component_list) do
+    Components[component_name]:update()
   end
 end
 
 function manager:draw ()
-  for i, cname in ipairs(component_list) do
-    Components[cname]:draw()
+  for i, component_name in ipairs(component_list) do
+    Components[component_name]:draw()
   end
 end
 
-function manager:get_component (id, cname)
-  return Components[cname].get(id)
+function manager:get_component (id, component_name)
+  return Components[component_name].get(id)
+end
+
+function manager:delete_element (id)
+  for i, component_name in ipairs(component_list) do
+    if success then
+      Components[component_name].destroy(id)
+    end
+  end
 end
 
 function manager:new_element (element_name)
   local id = IDManager:generate()
-  for i,component_name in ipairs(component_list) do
+  for i, component_name in ipairs(component_list) do
     print("set component", component_name)
     local success, params = pcall(require, 'database.' .. component_name .. '.' .. element_name)
     if success then

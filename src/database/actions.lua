@@ -1,5 +1,6 @@
 return {
   fight = {
+    'attack',
     'collision',
     'gravity',
     'movement',

@@ -5,13 +5,18 @@ local Component = require 'component'
 function Actor (params)
   local self = Component.inherit()
 
-  local maxhp, attack
+  local name
+  local maxhp
   local damage
 
   function self:init ()
+    name = params.name
     maxhp = params.maxhp
-    attack = params.attack
     damage = 0
+  end
+
+  function self:get_name ()
+    return name
   end
 
   function self:take_dmg(dmg)
