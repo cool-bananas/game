@@ -7,8 +7,9 @@ local Physics = require 'physics'
 
 local self = Action.inherit()
 
+print("\nCOLLISION CONTROLLER ACTIVATED\n")
+
 local function cancel (atk)
-  if atk:get_layer
   Signal:emit("cancel_attack", atk)
   Manager:delete_element(atk)
 end
@@ -32,6 +33,7 @@ self:add("physics_done", function (id)
   local frame = Manager:get_component(id, 'frame')
   if not body or not frame then return end
   frame:set_position(body.physics:get_pos():unpack())
+  print("updating hitbox position!")
 end)
 
 self:add("collide", function (receiver, giver)
